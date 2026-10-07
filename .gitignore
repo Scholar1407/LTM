@@ -1,0 +1,46 @@
+# Target build directory
+target/
+build/
+bin/
+
+# Compiled Class files
+*.class
+
+# Log files
+*.log
+
+# Package Files
+*.jar
+*.war
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# IDE - NetBeans
+nbproject/private/
+nb-configuration.xml
+*.nbattr
+
+# IDE - IntelliJ IDEA
+.idea/
+*.iml
+*.iws
+*.ipr
+out/
+
+# IDE - Eclipse
+.classpath
+.project
+.settings/
+
+# IDE - VS Code
+.vscode/
+
+# OS / System generated files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Practice output / temp files
+*.html
