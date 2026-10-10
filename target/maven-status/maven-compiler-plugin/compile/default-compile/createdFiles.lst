@@ -4,9 +4,11 @@ lt_02_screen\VD05_1.class
 lt_05_screen\VD05_5_client.class
 lt_05_screen\VD05_6.class
 lt_02_screen\VD03_1.class
+lt_06_screen\VD06_04_server.class
 lt_05_screen\VD05_1_client.class
 lt_06_screen\VD06_01_client.class
 lt_03_screen\VD03_3$CuuChuongThread.class
+lt_06_screen\SinhVien.class
 lt_03_screen\VD04_2.class
 lt_03_screen\MyThread.class
 lt_03_screen\SharedData.class
@@ -17,6 +19,7 @@ lt_04_screen\VD01_3.class
 lt_06_screen\VD06_02_server.class
 lt_02_screen\VD02_2.class
 lt_04_screen\VD02_1.class
+lt_06_screen\VD06_03_ghidocfile.class
 lt_03_screen\VD03_3.class
 lt_02_screen\VD04.class
 lt_03_screen\VD02_1.class
@@ -25,6 +28,7 @@ lt_03_screen\VD01_3.class
 lt_03_screen\VD04_1.class
 lt_03_screen\VD03_2$Table.class
 lt_04_screen\VD01_2.class
+lt_06_screen\VD06_04_server$XuLyClient.class
 lt_06_screen\ArrayObject.class
 lt_03_screen\VD04_1$1.class
 lt_05_screen\VD05_2_server.class
@@ -38,9 +42,11 @@ lt_03_screen\VD03_3$TableDongBo.class
 lt_05_screen\VD05_4.class
 lt_03_screen\VD03_2.class
 lt_02_screen\BT1.class
+lt_06_screen\GoiTinFile.class
 lt_05_screen\VD5_5_server.class
 lt_04_screen\VD02_3.class
 lt_03_screen\VD04_1$2.class
+lt_06_screen\VD06_04_client.class
 lt_06_screen\VD06_01_server.class
 lt_06_screen\VD06_02_client.class
 lt_02_screen\BT2.class
