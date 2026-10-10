@@ -20,7 +20,7 @@ public class TCPClient1 {
         try {
             socket.bind(null);
             InetAddress localHost = InetAddress.getLocalHost();
-            System.out.println("Client <" + localHost.getHostName() + " / " + localHost.getHostAddress() + " / " + socket.getLocalPort() + ">");
+            System.out.println("Client <" + localHost.getHostName() + " / " + localHost.getHostAddress() + " / Port " + socket.getLocalPort() + ">");
 
             String host = "";
             int port = 100;

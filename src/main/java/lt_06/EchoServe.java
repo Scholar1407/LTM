@@ -35,7 +35,7 @@ public class EchoServe extends Thread {
                 String clientIP = socket.getInetAddress().getHostAddress();
                 int clientPort = socket.getPort();
 
-                System.out.println("Nhan yeu cau tu: client (" + clientHost + " / " + clientIP + " / " + clientPort + ")");
+                System.out.println("Nhan yeu cau tu: client (" + clientHost + " / " + clientIP + " / Port " + clientPort + ")");
                 System.out.println("Chuoi nhan duoc: " + str);
                 String upper = str.toUpperCase();
                 System.out.println("KQ xu ly: " + upper);
