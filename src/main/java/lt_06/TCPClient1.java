@@ -14,37 +14,54 @@ import java.net.UnknownHostException;
 public class TCPClient1 {
 
     public static void main(String[] args) throws IOException {
-        String host = "localhost";
-        int port = 2008;
+        BufferedReader myinput = new BufferedReader(new InputStreamReader(System.in));
+        String host = "";
+        int port = 100;
+
         if (args.length == 2) {
             host = args[0];
             port = Integer.parseInt(args[1]);
+        } else {
+            System.out.print("Nhập IP Server: ");
+            host = myinput.readLine().trim();
+            System.out.print("Nhập port Server: ");
+            String portStr = myinput.readLine().trim();
+            if (!portStr.isEmpty()) {
+                port = Integer.parseInt(portStr);
+            }
         }
+
         try {
             InetAddress addr = InetAddress.getByName(host);
             Socket socket = new Socket(addr, port);
             try {
-                System.out.println("socket = " + socket);
+                InetAddress localHost = InetAddress.getLocalHost();
+                System.out.println();
+                System.out.println("Client <" + localHost.getHostName() + " / " + localHost.getHostAddress() + " / " + socket.getLocalPort() + ">");
+                System.out.println();
+                System.out.println("Đã kết nối Server <" + addr.getHostName() + " / " + addr.getHostAddress() + " / Port " + port + ">");
+                System.out.println();
+
                 BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
                 PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(socket.getOutputStream())), true);
-                BufferedReader myinput = new BufferedReader(new InputStreamReader(System.in));
+
                 while (true) {
-                    System.out.println("Nhap chuoi (exit de ket thuc):");
+                    System.out.print("Gửi chuỗi: ");
                     String strin = myinput.readLine();
-                    if (strin == null || strin.equals("exit")) {
+                    if (strin == null || strin.equalsIgnoreCase("exit")) {
                         out.println("exit");
                         break;
                     }
                     out.println(strin);
                     String strout = in.readLine();
-                    if (strout != null && strin.length() == strout.length()) {
-                        System.out.println("Received: " + strout);
+                    if (strout != null) {
+                        System.out.println("Nhận kết quả: " + strout);
+                        System.out.println();
                     } else {
-                        System.out.println("Echo bad -- string unequal " + strout);
+                        System.out.println("Echo bad -- không nhận được dữ liệu từ Server.");
                     }
                 }
             } finally {
-                System.out.println("EOF...exit");
                 socket.close();
             }
         } catch (UnknownHostException e) {
@@ -57,3 +74,4 @@ public class TCPClient1 {
         }
     }
 }
+

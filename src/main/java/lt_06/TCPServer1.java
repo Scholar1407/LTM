@@ -7,7 +7,7 @@ import java.net.Socket;
 
 public class TCPServer1 {
 
-    static int PORT = 2008;
+    static int PORT = 100;
 
     public static void main(String[] args) throws IOException {
         if (args.length == 1) {
@@ -15,12 +15,13 @@ public class TCPServer1 {
         }
         ServerSocket s = new ServerSocket(PORT);
         InetAddress addrs = InetAddress.getLocalHost();
-        System.out.println("TCP/Server : " + addrs + " ,Port " + s.getLocalPort());
+        System.out.println("Server: " + addrs.getHostName() + " / " + addrs.getHostAddress());
+        System.out.println("Server đang lắng nghe tại cổng " + s.getLocalPort());
         try {
             while (true) {
                 Socket socket = s.accept();
                 try {
-                    new EchoServe(socket);
+                    new EchoServe(socket, s.getLocalPort());
                 } catch (IOException e) {
                     socket.close();
                 }
@@ -30,3 +31,4 @@ public class TCPServer1 {
         }
     }
 }
+

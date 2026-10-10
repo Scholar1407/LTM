@@ -13,10 +13,11 @@ public class EchoServe extends Thread {
     private Socket socket;
     private BufferedReader in;
     private PrintWriter out;
+    private int serverPort;
 
-    public EchoServe(Socket s) throws IOException {
-        socket = s;
-        System.out.println("Serving: " + socket);
+    public EchoServe(Socket s, int serverPort) throws IOException {
+        this.socket = s;
+        this.serverPort = serverPort;
         in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
         out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(socket.getOutputStream())), true);
         start();
@@ -26,17 +27,21 @@ public class EchoServe extends Thread {
     public void run() {
         try {
             while (true) {
-                System.out.println("....Server is waiting...");
                 String str = in.readLine();
-                if (str == null || str.equals("exit")) {
+                if (str == null || str.equalsIgnoreCase("exit")) {
                     break;
                 }
-                System.out.println("Received: " + str);
-                System.out.println("From: " + socket);
+                String clientHost = socket.getInetAddress().getHostName();
+                String clientIP = socket.getInetAddress().getHostAddress();
+                int clientPort = socket.getPort();
+
+                System.out.println("Nhận yêu cầu từ: client (" + clientHost + " / " + clientIP + " / " + clientPort + ")");
+                System.out.println("Chuỗi nhận được: " + str);
                 String upper = str.toUpperCase();
+                System.out.println("KQ xử lý: " + upper);
                 out.println(upper);
+                System.out.println("Server đang lắng nghe tại cổng " + serverPort);
             }
-            System.out.println("Disconnected with.." + socket);
         } catch (IOException e) {
         } finally {
             try {
@@ -46,3 +51,4 @@ public class EchoServe extends Thread {
         }
     }
 }
+
