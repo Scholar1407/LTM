@@ -35,12 +35,12 @@ public class EchoServe extends Thread {
                 String clientIP = socket.getInetAddress().getHostAddress();
                 int clientPort = socket.getPort();
 
-                System.out.println("Nhận yêu cầu từ: client (" + clientHost + " / " + clientIP + " / " + clientPort + ")");
-                System.out.println("Chuỗi nhận được: " + str);
+                System.out.println("Nhan yeu cau tu: client (" + clientHost + " / " + clientIP + " / " + clientPort + ")");
+                System.out.println("Chuoi nhan duoc: " + str);
                 String upper = str.toUpperCase();
-                System.out.println("KQ xử lý: " + upper);
+                System.out.println("KQ xu ly: " + upper);
                 out.println(upper);
-                System.out.println("Server đang lắng nghe tại cổng " + serverPort);
+                System.out.println("Server dang lang nghe tai cong " + serverPort);
             }
         } catch (IOException e) {
         } finally {
@@ -51,4 +51,5 @@ public class EchoServe extends Thread {
         }
     }
 }
+
 

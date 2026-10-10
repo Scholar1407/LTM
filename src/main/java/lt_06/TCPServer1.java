@@ -16,7 +16,7 @@ public class TCPServer1 {
         ServerSocket s = new ServerSocket(PORT);
         InetAddress addrs = InetAddress.getLocalHost();
         System.out.println("Server: " + addrs.getHostName() + " / " + addrs.getHostAddress());
-        System.out.println("Server đang lắng nghe tại cổng " + s.getLocalPort());
+        System.out.println("Server dang lang nghe tai cong " + s.getLocalPort());
         try {
             while (true) {
                 Socket socket = s.accept();
@@ -31,4 +31,5 @@ public class TCPServer1 {
         }
     }
 }
+
 
